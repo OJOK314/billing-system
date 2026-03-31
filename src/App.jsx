@@ -42,9 +42,9 @@ function App() {
 
    <article>
     <ul>
-      <li>Invoicer Number:</li>
-      <li>Invoice Date:</li>
-      <li>Due Date:</li>
+      <li><span className="font-bold ">Invoicer Number:</span></li>
+      <li><span className="font-bold ">Invoice Date:</span></li>
+      <li><span className="font-bold ">Due Date:</span></li>
     </ul>
    </article>
 
@@ -54,14 +54,14 @@ function App() {
 
    <footer>
     <ul>
-      <li>Your Name</li>
-         <li>Your Email</li>
-            <li>Phone Number</li>
+      <li> <span className="font-bold ">Your Name:</span> OSBERT AINEMBABAZI</li>
+         <li> <span className="font-bold ">Your Email:</span> osbert@gmail.com</li>
+            <li> <span className="font-bold ">Phone Number:</span> 0703326458</li>
                
-                  <li>Bank</li>
-                     <li>Account holder</li>
-                        <li>Account Number</li>
-                        <li>Website</li>
+                  <li> <span className="font-bold ">Bank: </span>bank Account</li>
+                     <li> <span className="font-bold ">Account holder: </span>OSBERT AINEMBABAZI</li>
+                        <li> <span className="font-bold ">Account Number :</span> 90300020363036</li>
+                        <li> <span className="font-bold ">Website: </span>https://osbert</li>
     </ul>
    </footer>
     </main> 
