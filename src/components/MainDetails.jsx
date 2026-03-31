@@ -1,11 +1,11 @@
 import React from 'react'
 
-const MainDetails = () => {
+const MainDetails = ({name, address}) => {
   return (
     <div>
         <section>
-    <h2>OSBERT AINEMBABAZI</h2>
-    <p>Your Address</p>
+    <h2>{name}</h2>
+    <p>{address}</p>
    </section>
     </div>
   )
