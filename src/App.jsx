@@ -17,6 +17,7 @@ function App() {
   const [phone, setPhone] = useState("");
   const [bankName, setBankName] = useState("");
   const [bankAccount, setBankAccount] = useState("");
+  const [accountHolder, setAccountHolder] = useState("");
   const [website, setWebsite] = useState("");
   const [clientName, setClientName] = useState("");
   const [clientAddress, setClientAddress] = useState("");
@@ -36,11 +37,26 @@ function App() {
           <div>
             <Header handleprint={handleprint} />
             <MainDetails name={name} email={email} address={address} />
-            <ClientDetails />
-            <Date />
+            <ClientDetails
+              clientName={clientName}
+              clientAddress={clientAddress}
+            />
+            <Date
+              invoicerNumber={invoiceNumber}
+              invoiceDate={invoiceDate}
+              dueDate={dueDate}
+            />
             <Table />
-            <Notes />
-            <Footer name={name} email={email} address={address} website={website} bankAccount={bankAccount} bankName={bankName}/>
+            <Notes notes={notes} />
+            <Footer
+              name={name}
+              email={email}
+              address={address}
+              website={website}
+              bankAccount={bankAccount}
+              bankName={bankName}
+              phone={phone}
+            />
             <button
               onClick={() => setShowInvoice(false)}
               className="bg-blue-500  border-2 mt-5 font-bold border-amber-400 py-2 px-8 hover:bg-emerald-950 rounded shadow hover:text-amber-50  text-amber-50 "
@@ -49,84 +65,164 @@ function App() {
             </button>
           </div>
         ) : (
-          <div className=" flex flex-col">
-            <label htmlFor="name" className="font-bold ">Enter your name</label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-            
-              autoComplete="off"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
+         <div className="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-lg flex flex-col gap-5">
 
-            <label htmlFor="address"> Enter Your Address</label>
-            <input
-              type="text"
-              name="address"
-              id="address"
-              placeholder="Enter Your address"
-              autoComplete="off"
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
-            />
+  {/* Section Title */}
+  <h2 className="text-2xl font-bold text-gray-800 mb-2">Invoice Details</h2>
 
-            <label htmlFor="email">Your Email</label>
-            <input
-              type="text"
-              name="email"
-              id="email"
-              placeholder="Enter gmail"
-              autoComplete="off"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
+  {/* Input Group */}
+  <div className="flex flex-col">
+    <label htmlFor="name" className="font-semibold text-gray-700 mb-1">
+      Enter your name
+    </label>
+    <input
+      type="text"
+      id="name"
+      value={name}
+      onChange={(e) => setName(e.target.value)}
+      className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-amber-500"
+    />
+  </div>
 
+ 
 
-            <label htmlFor="url">Website</label>
-            <input
-              type="text"
-              name="websit"
-              id="website"
-              placeholder="Enter website"
-              autoComplete="off"
-              value={website}
-              onChange={(e) => setWebsite(e.target.value)}
-            />
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="flex flex-col">
+      <label className="font-semibold text-gray-700 mb-1">Email</label>
+      <input
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        className="border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-amber-500"
+        placeholder="Enter email"
+      />
+    </div>
 
-              <label htmlFor="bank">Bank Account</label>
-            <input
-              type="text"
-              name="bankAccount"
-              id="bankAccount"
-              placeholder="bankAccount"
-              autoComplete="off"
-              value={bankAccount}
-              onChange={(e) => setBankAccount(e.target.value)}
-            />
+     <div className="flex flex-col">
+    <label className="font-semibold text-gray-700 mb-1">
+      Enter Your Address
+    </label>
+    <input
+      type="text"
+      value={address}
+      onChange={(e) => setAddress(e.target.value)}
+      className="border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-amber-500"
+      placeholder="Enter your address"
+    />
+  </div>
 
-              <label htmlFor="bankName">Bank Name</label>
-            <input
-              type="text"
-              name="bankName"
-              id="bankName"
-              placeholder="bank Name"
-              autoComplete="off"
-              value={bankName}
-              onChange={(e) => setBankName(e.target.value)}
-            />
+   <div className="flex flex-col">
+    <label className="font-semibold text-gray-700 mb-1">
+      Enter Your Address
+    </label>
+    <input
+      type="text"
+      value={phone}
+      onChange={(e) => setPhone(e.target.value)}
+      className="border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-amber-500"
+      placeholder="Enter your address"
+    />
+  </div>
 
+    <div className="flex flex-col">
+      <label className="font-semibold text-gray-700 mb-1">Website</label>
+      <input
+        type="text"
+        value={website}
+        onChange={(e) => setWebsite(e.target.value)}
+        className="border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-amber-500"
+        placeholder="Enter website"
+      />
+    </div>
+  </div>
 
+  {/* Bank Info */}
+  <h3 className="text-lg font-bold text-gray-800 mt-4">Bank Details</h3>
 
+  <input
+    type="text"
+    placeholder="Bank Account"
+    value={bankAccount}
+    onChange={(e) => setBankAccount(e.target.value)}
+    className="border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-amber-500"
+  />
 
-            <button
-              onClick={() => setShowInvoice(true)}
-              className="bg-amber-700 text-2xl border-2 m  text-amber-50 p-8 rounded-2xl "
-            >
-              Preview
-            </button>
-          </div>
+  <input
+    type="text"
+    placeholder="Account Holder"
+    value={accountHolder}
+    onChange={(e) => setAccountHolder(e.target.value)}
+    className="border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-amber-500"
+  />
+
+  <input
+    type="text"
+    placeholder="Bank Name"
+    value={bankName}
+    onChange={(e) => setBankName(e.target.value)}
+    className="border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-amber-500"
+  />
+
+  {/* Client Info */}
+  <h3 className="text-lg font-bold text-gray-800 mt-4">Client Details</h3>
+
+  <input
+    type="text"
+    placeholder="Client Name"
+    value={clientName}
+    onChange={(e) => setClientName(e.target.value)}
+    className="border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-amber-500"
+  />
+
+  <input
+    type="text"
+    placeholder="Client Address"
+    value={clientAddress}
+    onChange={(e) => setClientAddress(e.target.value)}
+    className="border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-amber-500"
+  />
+
+  {/* Dates */}
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <input
+      type="text"
+      placeholder="Invoice Number"
+      value={invoiceNumber}
+      onChange={(e) => setInvoiceNumber(e.target.value)}
+      className="border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-amber-500"
+    />
+
+    <input
+      type="date"
+      value={invoiceDate}
+      onChange={(e) => setInvoiceDate(e.target.value)}
+      className="border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-amber-500"
+    />
+  </div>
+
+  <input
+    type="date"
+    value={dueDate}
+    onChange={(e) => setDueDate(e.target.value)}
+    className="border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-amber-500"
+  />
+<label>Additional Notes</label>
+  <textarea
+    placeholder="Notes"
+    value={notes}
+    onChange={(e) => setNotes(e.target.value)}
+    className="border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-amber-500"
+  />
+
+  {/* Button */}
+  <button
+    onClick={() => setShowInvoice(true)}
+    className="bg-amber-600 hover:bg-amber-700 transition-all text-white text-lg font-semibold py-3 rounded-xl shadow-md hover:scale-[1.02]"
+  >
+    Preview Invoice
+  </button>
+</div>
+
         )}
       </main>
     </>

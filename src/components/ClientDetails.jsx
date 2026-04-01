@@ -1,12 +1,13 @@
 import React from 'react'
 
-const ClientDetails = () => {
+const ClientDetails = ({clientName,clientAddress}) => {
   return (
     <div>
         <section>
-    <h2>Client's Name</h2>
+    <h2><span>Client Name</span>{clientName}</h2>
     <p>
-      Client's Address
+      <span className='font-bold  '><em>Client Address:</em></span>
+     {clientAddress} 
     </p>
    </section>
       

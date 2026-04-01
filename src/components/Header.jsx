@@ -2,10 +2,10 @@ import React from 'react'
 
 const Header = ({handleprint}) => {
   return (
-    <div>
+    <div className='bg-amber-800 px-6 py-8 '>
        <header>
     <div>
-      <h2>Invoicer</h2>
+      <h2>INVOICER</h2>
     </div>
 
     <div>
