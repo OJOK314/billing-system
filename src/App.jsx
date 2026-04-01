@@ -32,7 +32,7 @@ function App() {
 
   return (
     <>
-      <main>
+      <main >
         {showInvoice ? (
           <div>
             <Header handleprint={handleprint} />
@@ -59,36 +59,38 @@ function App() {
             />
             <button
               onClick={() => setShowInvoice(false)}
-              className="bg-blue-500  border-2 mt-5 font-bold border-amber-400 py-2 px-8 hover:bg-emerald-950 rounded shadow hover:text-amber-50  text-amber-50 "
+              className="bg-blue-500  border-2 mt-5  font-bold border-amber-400  hover:bg-emerald-950 rounded shadow hover:text-amber-50  text-amber-50 "
             >
               Edit Information
             </button>
           </div>
         ) : (
-         <div className="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-lg flex flex-col gap-5">
+
+         <div className="max-w-6xl mx-auto bg-blue-400 p-8 rounded-2xl shadow-lg flex flex-col gap-6 ">
 
   {/* Section Title */}
-  <h2 className="text-2xl font-bold text-gray-800 mb-2">Invoice Details</h2>
+  <h2 className="text-4xl font-bold text-white mb-2 text-center hover:bg-amber-950 hover:text-emerald-600 uppercase underline "><em>Invoice Details</em></h2>
 
   {/* Input Group */}
   <div className="flex flex-col">
-    <label htmlFor="name" className="font-semibold text-gray-700 mb-1">
+    <label htmlFor="name" className="font-semibold mb-1  text-white  text-2xl ">
       Enter your name
     </label>
     <input
       type="text"
       id="name"
+      placeholder="Enter your name"
       value={name}
       onChange={(e) => setName(e.target.value)}
-      className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-amber-500"
+      className="border border-gray-300 rounded-lg  focus:outline-none focus:ring-2 focus:ring-amber-500  "
     />
   </div>
 
  
 
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
     <div className="flex flex-col">
-      <label className="font-semibold text-gray-700 mb-1">Email</label>
+      <label className="font-semibold text-white mb-1 text-2xl">Email</label>
       <input
         type="email"
         value={email}
@@ -99,7 +101,7 @@ function App() {
     </div>
 
      <div className="flex flex-col">
-    <label className="font-semibold text-gray-700 mb-1">
+    <label className="font-semibold  text-white mb-1 text-2xl">
       Enter Your Address
     </label>
     <input
@@ -112,7 +114,7 @@ function App() {
   </div>
 
    <div className="flex flex-col">
-    <label className="font-semibold text-gray-700 mb-1">
+    <label className="font-semibold  text-white mb-1 text-2xl">
       Enter Your Address
     </label>
     <input
@@ -125,7 +127,7 @@ function App() {
   </div>
 
     <div className="flex flex-col">
-      <label className="font-semibold text-gray-700 mb-1">Website</label>
+      <label className="font-semibold  text-white mb-1">Website</label>
       <input
         type="text"
         value={website}
@@ -137,24 +139,25 @@ function App() {
   </div>
 
   {/* Bank Info */}
-  <h3 className="text-lg font-bold text-gray-800 mt-4">Bank Details</h3>
-
+  <h3 className="font-bold  mt-4  text-white  text-2xl ">Bank Details</h3>
+<label className="font-semibold  text-white mb-1 text-2xl">Accoun Number</label>
   <input
     type="text"
-    placeholder="Bank Account"
+    placeholder="Account Number"
     value={bankAccount}
     onChange={(e) => setBankAccount(e.target.value)}
     className="border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-amber-500"
   />
 
-  <input
+  {/* <input
     type="text"
     placeholder="Account Holder"
     value={accountHolder}
     onChange={(e) => setAccountHolder(e.target.value)}
     className="border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-amber-500"
-  />
+  /> */}
 
+<label className="font-semibold  text-white mb-1 text-2xl" >Bank Name</label>
   <input
     type="text"
     placeholder="Bank Name"
@@ -164,8 +167,8 @@ function App() {
   />
 
   {/* Client Info */}
-  <h3 className="text-lg font-bold text-gray-800 mt-4">Client Details</h3>
-
+  <h3 className="text-2xl font-bold text-white mt-4">Client Details</h3>
+<label className="font-semibold  text-white mb-1 text-2xl">Cleint Name</label>
   <input
     type="text"
     placeholder="Client Name"
@@ -173,7 +176,7 @@ function App() {
     onChange={(e) => setClientName(e.target.value)}
     className="border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-amber-500"
   />
-
+<label className="font-semibold  text-white mb-1 text-2xl">Client Address</label>
   <input
     type="text"
     placeholder="Client Address"
@@ -182,8 +185,9 @@ function App() {
     className="border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-amber-500"
   />
 
+<label className="font-semibold  text-white mb-1 text-2xl">Invoice Number</label>
   {/* Dates */}
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+  <div className="flex grid-cols-1 md:grid-cols-2 gap-4">
     <input
       type="text"
       placeholder="Invoice Number"
@@ -192,6 +196,7 @@ function App() {
       className="border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-amber-500"
     />
 
+<label className="font-semibold  text-white mb-1 text-2xl flex text-center ">Invoice Date</label>
     <input
       type="date"
       value={invoiceDate}
@@ -200,13 +205,14 @@ function App() {
     />
   </div>
 
+<label className="font-semibold  text-white mb-1 text-2xl">Due Date</label>
   <input
     type="date"
     value={dueDate}
     onChange={(e) => setDueDate(e.target.value)}
     className="border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-amber-500"
   />
-<label>Additional Notes</label>
+<label className="text-2xl text-white ">Additional Notes</label>
   <textarea
     placeholder="Notes"
     value={notes}

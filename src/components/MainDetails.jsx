@@ -3,7 +3,7 @@ import React from 'react'
 const MainDetails = ({name, address}) => {
   return (
     <div>
-        <section>
+      <section>
     <h2>{name}</h2>
     <p>{address}</p>
    </section>
