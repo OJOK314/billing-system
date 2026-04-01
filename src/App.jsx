@@ -40,7 +40,7 @@ function App() {
             <Date />
             <Table />
             <Notes />
-            <Footer />
+            <Footer name={name} email={email} address={address} website={website} bankAccount={bankAccount} bankName={bankName}/>
             <button
               onClick={() => setShowInvoice(false)}
               className="bg-blue-500  border-2 mt-5 font-bold border-amber-400 py-2 px-8 hover:bg-emerald-950 rounded shadow hover:text-amber-50  text-amber-50 "
@@ -50,12 +50,12 @@ function App() {
           </div>
         ) : (
           <div className=" flex flex-col">
-            <label htmlFor="name">Enter your name</label>
+            <label htmlFor="name" className="font-bold ">Enter your name</label>
             <input
               type="text"
               name="name"
               id="name"
-              placeholder="Enter your name"
+            
               autoComplete="off"
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -82,6 +82,43 @@ function App() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
+
+
+            <label htmlFor="url">Website</label>
+            <input
+              type="text"
+              name="websit"
+              id="website"
+              placeholder="Enter website"
+              autoComplete="off"
+              value={website}
+              onChange={(e) => setWebsite(e.target.value)}
+            />
+
+              <label htmlFor="bank">Bank Account</label>
+            <input
+              type="text"
+              name="bankAccount"
+              id="bankAccount"
+              placeholder="bankAccount"
+              autoComplete="off"
+              value={bankAccount}
+              onChange={(e) => setBankAccount(e.target.value)}
+            />
+
+              <label htmlFor="bankName">Bank Name</label>
+            <input
+              type="text"
+              name="bankName"
+              id="bankName"
+              placeholder="bank Name"
+              autoComplete="off"
+              value={bankName}
+              onChange={(e) => setBankName(e.target.value)}
+            />
+
+
+
 
             <button
               onClick={() => setShowInvoice(true)}
