@@ -1,5 +1,8 @@
 // import React from 'react'
-// import { useEffect } from 'react'
+import { useEffect } from 'react'
+
+
+
 // // import {v4 and uuid} from "uuidv4"
 const TableForm = ( {
     description, 
@@ -14,6 +17,17 @@ const TableForm = ( {
     
 ) => {
    
+    // useEffect(() => {
+    //     const  calculateAmount = (amount)=>{
+    //         setAmount(quantity*price)
+    //     }
+    //     calculateAmount(amount);
+
+    // }, [amount,quantity,price,setAmount])
+
+    const calculateAmount = (amount)=>{
+        setAmount(quantity*price)
+    }
 
   return (
     <div className="flex flex-col">
@@ -27,7 +41,7 @@ const TableForm = ( {
         placeholder='item description'
           className="border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-amber-500"
         />
-
+<div  >
          <label htmlFor='quantity'className="font-semibold  text-white mb-1 text-2xl">Quantity</label>
         <input
         type='text'
@@ -49,18 +63,11 @@ const TableForm = ( {
         placeholder='price'
           className="border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-amber-500"
         />
-
-           <label htmlFor='amount'className="font-semibold  text-white mb-1 text-2xl">amount</label>
-        <input
-        type='text'
-        name='amount'
-        id='amount'
-        value={amount}
-        onChange={(e) => setAmount(e.target.value)}
-        placeholder='amount'
-          className="border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-amber-500"
-        />
-
+<div>
+           <label htmlFor='amount' className="font-semibold  text-white mb-1 text-2xl">amount</label>
+      <p>{calculateAmount(amount)}</p>
+      </div>
+</div>
 
 
 

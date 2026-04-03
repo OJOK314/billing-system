@@ -54,14 +54,10 @@ function App() {
               dueDate={dueDate}
             />
             <Table
-              description={description}
-                 setDescription={setDescription}
-              quantity={quantity}
-              setQuantity={setQuantity}
-              price={price}
-              setPrice={setPrice}
-              amount={amount}
-              setAmount={setAmount}
+               description={description}
+                quantity={quantity}
+                price={price}
+                amount={amount}
             />
 
             <Notes notes={notes} />
@@ -268,8 +264,16 @@ function App() {
     /> */}
 
               <TableForm
-                description={description}
-                setDescription={setDescription}
+              
+
+                 description={description}
+                 setDescription={setDescription}
+              quantity={quantity}
+              setQuantity={setQuantity}
+              price={price}
+              setPrice={setPrice}
+              amount={amount}
+              setAmount={setAmount}
               />
             </article>
 
