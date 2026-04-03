@@ -1,33 +1,23 @@
 import React from "react";
 
-const Table = ({description}) => {
+const Table = ({description,quantity,price,amount}) => {
   return (
     <div>
-      <p>This is the table</p>
-
-      <table>
+      <table width="100%">
         <thead>
-          <tr>
+          <tr className="bg-amber-400 text-amber-50 ">
             <th>Description</th>
-<br/>
             <th>Quantity</th>
-<br/>
             <th>Price</th>
-<br/>
             <th>Amount</th>
           </tr>
         </thead>
-
         <tbody>
           <tr>
             <td>{description}</td>
-
-            <td>5</td>
-            <br/>
-
-            <td className="ml-4 ">20000</td>
-<br/>
-            <td>60,000</td>
+            <td>{quantity}</td>
+            <td>{price}</td>
+            <td>{amount}</td>
           </tr>
         </tbody>
       </table>
