@@ -17,7 +17,7 @@ const TableForm = ( {
 
   return (
     <div className="flex flex-col">
-        <label htmlFor='description'>Item description</label>
+        <label htmlFor='description' className="font-semibold  text-white mb-1 text-2xl">Item description</label>
         <input
         type='text'
         name='description'
@@ -25,9 +25,10 @@ const TableForm = ( {
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         placeholder='item description'
+          className="border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-amber-500"
         />
 
-         <label htmlFor='quantity'>Quantity</label>
+         <label htmlFor='quantity'className="font-semibold  text-white mb-1 text-2xl">Quantity</label>
         <input
         type='text'
         name='quantity'
@@ -35,9 +36,10 @@ const TableForm = ( {
         value={quantity}
         onChange={(e) => setQuantity(e.target.value)}
         placeholder='quantity'
+          className="border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-amber-500"
         />
 
-         <label htmlFor='price'>price</label>
+         <label htmlFor='price'className="font-semibold  text-white mb-1 text-2xl">price</label>
         <input
         type='text'
         name='price'
@@ -45,9 +47,10 @@ const TableForm = ( {
         value={price}
         onChange={(e) => setPrice(e.target.value)}
         placeholder='price'
+          className="border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-amber-500"
         />
 
-           <label htmlFor='amount'>amount</label>
+           <label htmlFor='amount'className="font-semibold  text-white mb-1 text-2xl">amount</label>
         <input
         type='text'
         name='amount'
@@ -55,6 +58,7 @@ const TableForm = ( {
         value={amount}
         onChange={(e) => setAmount(e.target.value)}
         placeholder='amount'
+          className="border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-amber-500"
         />
 
 
