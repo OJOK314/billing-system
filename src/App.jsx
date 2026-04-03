@@ -234,7 +234,7 @@ function App() {
     
 <label className="text-2xl underline  text-amber-300">Additional Notes</label>
   <textarea
-    placeholder="Notes"
+    placeholder="leave us a message"
     value={notes}
     onChange={(e) => setNotes(e.target.value)}
     className="border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-amber-500"

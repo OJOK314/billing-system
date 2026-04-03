@@ -8,13 +8,13 @@ const Table = ({description}) => {
       <table>
         <thead>
           <tr>
-            <th>description</th>
-
-            <th>quantity</th>
-
-            <th>price</th>
-
-            <th>amount</th>
+            <th>Description</th>
+<br/>
+            <th>Quantity</th>
+<br/>
+            <th>Price</th>
+<br/>
+            <th>Amount</th>
           </tr>
         </thead>
 
@@ -23,9 +23,10 @@ const Table = ({description}) => {
             <td>{description}</td>
 
             <td>5</td>
+            <br/>
 
-            <td>20000</td>
-
+            <td className="ml-4 ">20000</td>
+<br/>
             <td>60,000</td>
           </tr>
         </tbody>
