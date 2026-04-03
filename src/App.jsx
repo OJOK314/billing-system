@@ -7,24 +7,29 @@ import Header from "./components/Header";
 import MainDetails from "./components/MainDetails";
 import ClientDetails from "./components/ClientDetails";
 import Date from "./components/Date";
+import TableForm from "./components/TableForm";
 
 function App() {
   const [showInvoice, setShowInvoice] = useState(false);
 
-  const [name, setName] = useState("name");
-  const [address, setAddress] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [bankName, setBankName] = useState("");
-  const [bankAccount, setBankAccount] = useState("");
-  const [accountHolder, setAccountHolder] = useState("");
-  const [website, setWebsite] = useState("");
-  const [clientName, setClientName] = useState("");
-  const [clientAddress, setClientAddress] = useState("");
-  const [invoiceNumber, setInvoiceNumber] = useState("");
-  const [invoiceDate, setInvoiceDate] = useState("");
-  const [dueDate, setDueDate] = useState("");
-  const [notes, setNotes] = useState("");
+  const [name, setName] = useState("ALFRED DZEK");
+  const [address, setAddress] = useState("gulu");
+  const [email, setEmail] = useState("admin@gmail.com");
+  const [phone, setPhone] = useState("0777520905");
+  const [bankName, setBankName] = useState("ABSA");
+  const [bankAccount, setBankAccount] = useState("1234567890");
+  const [accountHolder, setAccountHolder] = useState("Erick");
+  const [website, setWebsite] = useState("https://kanzucodefoundation.org/contact-us/");
+  const [clientName, setClientName] = useState("John Doe");
+  const [clientAddress, setClientAddress] = useState("Nairobi, Kenya");
+  const [invoiceNumber, setInvoiceNumber] = useState("004");
+  const [invoiceDate, setInvoiceDate] = useState("20/10/2021");
+  const [dueDate, setDueDate] = useState("01/11/2021");
+  const [notes, setNotes] = useState("pay to the bank account indicated");
+  const [description,setDescription] = useState("")
+    const [quantity,setQuantity] = useState("")
+      const [price,setPrice] = useState("")
+        const [amount,setAmount] = useState("")
 
   function handleprint() {
     window.print();
@@ -46,7 +51,8 @@ function App() {
               invoiceDate={invoiceDate}
               dueDate={dueDate}
             />
-            <Table />
+            <Table description={description}  quantity={quantity} amount={amount}  /> 
+          
             <Notes notes={notes} />
             <Footer
               name={name}
@@ -56,6 +62,7 @@ function App() {
               bankAccount={bankAccount}
               bankName={bankName}
               phone={phone}
+              accountHolder={accountHolder}
             />
             <button
               onClick={() => setShowInvoice(false)}
@@ -115,7 +122,7 @@ function App() {
 
    <div className="flex flex-col">
     <label className="font-semibold  text-white mb-1 text-2xl">
-      Enter Your Address
+      Phone number
     </label>
     <input
       type="text"
@@ -127,7 +134,7 @@ function App() {
   </div>
 
     <div className="flex flex-col">
-      <label className="font-semibold  text-white mb-1">Website</label>
+      <label className="font-semibold  text-white mb-1 text-2xl ">Website</label>
       <input
         type="text"
         value={website}
@@ -139,7 +146,7 @@ function App() {
   </div>
 
   {/* Bank Info */}
-  <h3 className="font-bold  mt-4  text-white  text-2xl ">Bank Details</h3>
+  <h3 className="font-bold  mt-4   text-2xl underline   text-amber-300">Bank Details</h3>
 <label className="font-semibold  text-white mb-1 text-2xl">Accoun Number</label>
   <input
     type="text"
@@ -149,13 +156,14 @@ function App() {
     className="border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-amber-500"
   />
 
-  {/* <input
+<label className="font-semibold  text-white mb-1 text-2xl">Account Holder</label>
+  <input
     type="text"
     placeholder="Account Holder"
     value={accountHolder}
     onChange={(e) => setAccountHolder(e.target.value)}
     className="border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-amber-500"
-  /> */}
+  />
 
 <label className="font-semibold  text-white mb-1 text-2xl" >Bank Name</label>
   <input
@@ -167,7 +175,7 @@ function App() {
   />
 
   {/* Client Info */}
-  <h3 className="text-2xl font-bold text-white mt-4">Client Details</h3>
+  <h3 className="text-2xl font-bold  mt-4 underline  text-amber-300">Client Details</h3>
 <label className="font-semibold  text-white mb-1 text-2xl">Cleint Name</label>
   <input
     type="text"
@@ -212,7 +220,19 @@ function App() {
     onChange={(e) => setDueDate(e.target.value)}
     className="border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-amber-500"
   />
-<label className="text-2xl text-white ">Additional Notes</label>
+
+  
+  <label className="font-semibold  text-white mb-1 text-2xl">Item Description</label>
+ 
+    <input
+      type="text"
+      placeholder="item description"
+      value={description}
+      onChange={(e) => setDescription(e.target.value)}
+      className="border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-amber-500"
+    />
+    
+<label className="text-2xl underline  text-amber-300">Additional Notes</label>
   <textarea
     placeholder="Notes"
     value={notes}
