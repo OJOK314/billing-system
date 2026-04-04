@@ -8,30 +8,31 @@ import MainDetails from "./components/MainDetails";
 import ClientDetails from "./components/ClientDetails";
 import Date from "./components/Date";
 import TableForm from "./components/TableForm";
+import { useReactToPrint } from "react-to-print";
 
 function App() {
   const [showInvoice, setShowInvoice] = useState(false);
 
-  const [name, setName] = useState("ALFRED DZEK");
-  const [address, setAddress] = useState("gulu");
-  const [email, setEmail] = useState("admin@gmail.com");
-  const [phone, setPhone] = useState("0777520905");
-  const [bankName, setBankName] = useState("ABSA");
-  const [bankAccount, setBankAccount] = useState("1234567890");
-  const [accountHolder, setAccountHolder] = useState("Erick");
-  const [website, setWebsite] = useState(
-    "https://kanzucodefoundation.org/contact-us/",
-  );
-  const [clientName, setClientName] = useState("John Doe");
-  const [clientAddress, setClientAddress] = useState("Nairobi, Kenya");
-  const [invoiceNumber, setInvoiceNumber] = useState("004");
-  const [invoiceDate, setInvoiceDate] = useState("20/10/2021");
-  const [dueDate, setDueDate] = useState("01/11/2021");
-  const [notes, setNotes] = useState("pay to the bank account indicated");
+  const [name, setName] = useState("");
+  const [address, setAddress] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [bankName, setBankName] = useState("");
+  const [bankAccount, setBankAccount] = useState("");
+  const [accountHolder, setAccountHolder] = useState("");
+  const [website, setWebsite] = useState("");
+  const [clientName, setClientName] = useState("");
+  const [clientAddress, setClientAddress] = useState("");
+  const [invoiceNumber, setInvoiceNumber] = useState("");
+  const [invoiceDate, setInvoiceDate] = useState("");
+  const [dueDate, setDueDate] = useState("");
+  const [notes, setNotes] = useState("");
   const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState("");
   const [price, setPrice] = useState("");
   const [amount, setAmount] = useState("");
+  const [list,setList] = useState([])
+  const [total,setTotal] = useState(0)
 
   function handleprint() {
     window.print();
@@ -58,6 +59,10 @@ function App() {
                 quantity={quantity}
                 price={price}
                 amount={amount}
+                list={list}
+                setList={setList}
+                total={total}
+                setTotal={setTotal}
             />
 
             <Notes notes={notes} />
@@ -274,6 +279,10 @@ function App() {
               setPrice={setPrice}
               amount={amount}
               setAmount={setAmount}
+              list={list}
+              setList={setList}
+               total={total}
+                setTotal={setTotal}
               />
             </article>
 
